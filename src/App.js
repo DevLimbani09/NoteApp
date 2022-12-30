@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import produce from "immer";
 
-const Notes = (props) =>
-  props.data.map((note) => (
-    <li>
-      <div className="noteItems">{note.text}</div>
-    </li>
-  ));
-
 function App() {
+  const Notes = (props) =>
+    props.data.map((note, index) => (
+      <li>
+        <div className="noteItems">
+          {note.text}{" "}
+          <button className="removebtn" onClick={() => handleRemove(index)}>
+            <i className="fa fa-minus"></i>
+          </button>
+        </div>
+      </li>
+    ));
+
   const initialData = [{ text: "Loading Notes..." }];
 
   const [data, setData] = useState(initialData);
 
-  const handleClick = () => {
+  const handleAdd = () => {
     const text = document.querySelector("#noteinput").value.trim();
+    // console.log(text)
     if (text) {
       const nextState = produce(data, (draftState) => {
         draftState.push({ text });
@@ -23,8 +29,31 @@ function App() {
       if (typeof window !== "undefined") {
         localStorage.setItem("data", JSON.stringify(nextState));
       }
+      // console.log(nextState)
       setData(nextState);
     }
+  };
+
+  // const handleRemove = (index) => {
+  //   // console.log(index);
+  //   const removed = data.splice(index, 1);
+  //   if (typeof window != 'undefined') {
+  //     localStorage.setItem('data', JSON.stringify(data));
+  //   }
+  //   console.log(data);
+  //   setData(data);
+  // }
+
+  const handleRemove = (index) => {
+    const nextState = produce(data, (draftState) => {
+      draftState.splice(index, 1);
+    });
+    document.querySelector("#noteinput").value = "";
+    if (typeof window !== "undefined") {
+      localStorage.setItem("data", JSON.stringify(nextState));
+    }
+    // console.log(nextState)
+    setData(nextState);
   };
 
   useEffect(() => {
@@ -35,7 +64,7 @@ function App() {
       }
       return setData([]);
     }
-  }, 0);
+  }, []);
 
   return (
     <>
@@ -48,8 +77,8 @@ function App() {
           placeholder="•"
         />
         <div className="btnBg">
-          <button className="addButton" onClick={handleClick}>
-            <i class="fa fa-plus"></i>
+          <button className="addButton" onClick={handleAdd}>
+            <i className="fa fa-plus"></i>
           </button>
         </div>
       </div>
