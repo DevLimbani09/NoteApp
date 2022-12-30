@@ -1,13 +1,123 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  background-color: rgb(250, 230, 230);
+  margin-top: 10%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.header {
+  text-align: center;
+  font-size: 100px;
+  font-family: "Montserrat";
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(251, 128, 149, 1) 10%,
+    rgba(253, 19, 131, 1) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.inputField {
+  /* outline: red solid 5px; */
+  margin: 0% 1% 1% 5%;
+  padding: 1.5%;
+  width: 80%;
+  font-family: 'Segoe UI';
+  font-size: large;
+  color: #292929;
+  /* letter-spacing: 1px; */
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75),
+    0px -1px 5px -4px rgba(0, 0, 0, 0.75);
+}
+
+.btnBg {
+  padding: 0%;
+  margin: 0% 1% 0% 1%;
+  display: inline-block;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(251, 128, 149, 1) -5%,
+    rgba(253, 19, 131, 1) 105%
+  );
+}
+
+.addButton {
+  margin: 1%;
+  /* padding: 1%; */
+  width: inherit;
+  height: inherit;
+  border: none;
+  background-clip: text;
+  font-size: large;
+  border-radius: 50%;
+  color: white;
+}
+
+/* .fa {
+  display: inline-block;
+  vertical-align: bottom;
+} */
+
+button:focus {
+  animation: iconRotate 0.3s ease;
+}
+
+@keyframes iconRotate {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.noteWrapper {
+  margin-left: 3%;
+  width: 83%;
+  /* outline: green solid 5px; */
+}
+
+.noteItems {
+  /* outline: red solid 1px; */
+  color: #292929;
+  padding: 0.5%;
+  font-size: large;
+  font-family: "Segoe UI";
+  border-bottom: #292929 solid 1px;
+}
+
+
+@media screen and (max-width: 1080px) {
+  .header {
+    font-size: 150px;
+  }
+
+  .inputField {
+    padding: 2% 1.5% 2% 1.5%;
+  }
+
+  .btnBg {
+    width: 70px;
+    height: 70px;
+  }
+
+  .noteItems {
+    font-size: x-large;
+  }
 }

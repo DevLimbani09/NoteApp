@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import produce from "immer";
 
-const Notes = (props) => props.data.map((note) => <div>{note.text}</div>);
+const Notes = (props) =>
+  props.data.map((note) => (
+    <li>
+      <div className="noteItems">{note.text}</div>
+    </li>
+  ));
 
 function App() {
   const initialData = [{ text: "Loading Notes..." }];
@@ -34,14 +39,25 @@ function App() {
 
   return (
     <>
-      <input
-        id="noteinput"
-        style={{ width: "80%" }}
-        type="text"
-        placeholder="Type here."
-      />
-      <button onClick={handleClick}>Add Note</button>
-      <Notes data={data} />
+      <h1 className="header">Notes.</h1>
+      <div className="inputWrapper">
+        <input
+          className="inputField"
+          id="noteinput"
+          type="text"
+          placeholder="•"
+        />
+        <div className="btnBg">
+          <button className="addButton" onClick={handleClick}>
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div className="noteWrapper">
+        <ul>
+          <Notes data={data} />
+        </ul>
+      </div>
     </>
   );
 }
