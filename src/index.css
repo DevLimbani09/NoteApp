@@ -88,7 +88,7 @@ button:focus {
 }
 
 .noteWrapper {
-  margin-left: 3%;
+  margin-left: 4.5%;
   width: 83%;
   /* outline: green solid 5px; */
 }
@@ -104,20 +104,40 @@ button:focus {
 
 
 @media screen and (max-width: 1080px) {
+  body{
+    margin: 0;
+    padding: 0;
+  }
+
   .header {
-    font-size: 150px;
+    font-size: 200px;
+    margin-bottom: 5%;
   }
 
   .inputField {
-    padding: 2% 1.5% 2% 1.5%;
+    margin-left: 3%;
+    width: 75%;
+    font-size: xxx-large;
+    padding: 4% 2% 4% 2%;
+    border-radius: 14px;
   }
 
   .btnBg {
-    width: 70px;
-    height: 70px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .addButton {
+    font-size: xxx-large;
+  }
+
+  .noteWrapper{
+    margin-left: 3%;
+    width: 76%;
   }
 
   .noteItems {
-    font-size: x-large;
+    font-size: xxx-large;
+    border-bottom: #292929 solid 2px;
   }
 }
