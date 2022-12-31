@@ -159,4 +159,11 @@ button:focus {
     font-size: xxx-large;
     border-bottom: #292929 solid 2px;
   }
+
+  .removebtn {
+    margin: 10px;
+    font-size: xx-large;
+    height: 50px;
+    width: 50px;
+  }
 }
